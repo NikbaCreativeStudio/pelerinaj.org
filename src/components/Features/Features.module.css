@@ -1,0 +1,14 @@
+.features {
+    background: var(--second-background-color);
+    padding: 3rem 0;
+}
+
+.title {
+    composes: title from '../Cards/Cards.module.css';
+    margin-top: 0;
+}
+
+.subtitle {
+    composes: subtitle from '../Cards/Cards.module.css';
+    margin-top: 1rem;
+}
