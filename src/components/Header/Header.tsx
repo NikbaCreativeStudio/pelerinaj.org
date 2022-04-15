@@ -1,4 +1,5 @@
 import { FC, useState, MouseEvent } from "react";
+import { Link } from "react-scroll";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,12 +10,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import MenuItem from '@mui/material/MenuItem';
 
 import Logo from '../../images/logo.svg';
 import  styles  from './Header.module.css';
 
-const pages = ['Destinații', 'Despre noi', 'Contacte'];
+const pages = [
+    { 'title': 'Pelerinaje', 'link': 'destinations'}, 
+    { 'title': 'Despre noi', 'link': 'about'},
+    { 'title': 'Contact', 'link': 'contacts'}
+];
 
 export const Header: FC = () => {
 
@@ -66,9 +70,18 @@ export const Header: FC = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
+                                <Link
+                                    activeClass="active"
+                                    to={page.link}
+                                    spy={true}
+                                    smooth={true}
+                                    offset={-100}
+                                    duration={500}
+                                    key={page.title} onClick={handleCloseNavMenu}
+                                    className={styles.link_mobile}
+                                >
+                                    <Typography textAlign="center">{page.title}</Typography>
+                                    </Link>
                             ))}
                         </Menu>
                     </Box>
@@ -77,13 +90,18 @@ export const Header: FC = () => {
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
+                            <Link
+                            activeClass="active"
+                            to={page.link}
+                            spy={true}
+                            smooth={true}
+                            offset={-100}
+                            duration={500}
+                            key={page.title} onClick={handleCloseNavMenu}
+                            className={styles.link}
+                        >
+                                {page.title}
+                            </Link>
                         ))}
                     </Box>
 

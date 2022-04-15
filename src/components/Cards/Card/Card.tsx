@@ -16,6 +16,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Backdrop from '@mui/material/Backdrop';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
+import { format } from 'date-fns'
+import { ro } from 'date-fns/locale'
 
 import { TCardProps } from '../../../types/cards';
 
@@ -92,7 +94,7 @@ export const CardItem: FC<TCardProps> = ({ card }) => {
                     <Avatar alt="Remy Sharp" src={card.country.image.data.thumbnails[8].url} />
                 }
                 title={card.title}
-                subheader="September 14, 2016"
+                subheader={format ( new Date(card.date), 'dd MMMM Y', { locale: ro })}
             />
             <CardMedia
                 component="img"
@@ -147,7 +149,7 @@ export const CardItem: FC<TCardProps> = ({ card }) => {
             >
                 <Fade in={open}>
                     <Box sx={style}>
-                        <ModalDialog />
+                        <ModalDialog card={card} />
                     </Box>
                 </Fade>
             </Modal>

@@ -1,0 +1,15 @@
+.about {
+    padding: 4rem 0;
+    font-size: 0.875rem;
+    font-weight: 400 !important;
+    line-height: 1.5;
+    color: #312d65;
+    text-align: justify;
+    font-family: var(--font-family)
+}
+
+.title {
+    composes: title from '../Cards/Cards.module.css';
+    margin-top: 0;
+    text-align: left;
+}

@@ -2,6 +2,7 @@ import { FC } from "react";
 import Container from "@mui/material/Container";
 import Grid from '@mui/material/Grid';
 import { CardItem } from "./Card/Card";
+import { Spinner } from "../Spinner/Spinner";
 
 import { useAppSelector } from '../../services/hooks'
 
@@ -9,10 +10,14 @@ import styles from "./Cards.module.css";
 
 export const Cards: FC = () => {
 
-    const { cards } = useAppSelector(state => state.cards);
+    const { cards, isLoading } = useAppSelector(state => state.cards);
+
+    if(!cards || isLoading) {
+        return <Spinner />
+    }
 
     return (
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" id="destinations">
             <h1 className={styles.title}>Descoperă locurile sfinte alături de noi</h1>
             <p className={styles.subtitle}>Transformăm visurile în călătorii de neuitat</p>
 

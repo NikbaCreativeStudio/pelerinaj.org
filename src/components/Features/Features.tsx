@@ -20,14 +20,12 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
     },
     [`&.${stepConnectorClasses.active}`]: {
         [`& .${stepConnectorClasses.line}`]: {
-            backgroundImage:
-                'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+            backgroundColor: theme.palette.primary.main,
         },
     },
     [`&.${stepConnectorClasses.completed}`]: {
         [`& .${stepConnectorClasses.line}`]: {
-            backgroundImage:
-                'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+            backgroundColor: theme.palette.primary.main,
         },
     },
     [`& .${stepConnectorClasses.line}`]: {
@@ -52,13 +50,10 @@ const ColorlibStepIconRoot = styled('div')<{
     justifyContent: 'center',
     alignItems: 'center',
     ...(ownerState.active && {
-        backgroundImage:
-            'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
-        boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
+        backgroundColor: theme.palette.primary.main,
     }),
     ...(ownerState.completed && {
-        backgroundImage:
-            'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
+        backgroundColor: theme.palette.primary.main,
     }),
 }));
 
@@ -84,13 +79,13 @@ const steps = ['Transport ', 'Cazare', 'Ghid'];
 export const Features: FC = () => {
 
     return (
-        <section className={styles.features}>
+        <section className={styles.features} id="about">
             <Container maxWidth="xl">
                 <h1 className={styles.title}>Pelerinaje în Moldova și Externe</h1>
                 <p className={styles.subtitle}>Ne-am specializat de-a lungul timpului pe organizarea pelerinajelor</p>
             </Container>
-            <Stack sx={{ width: '100%' }} spacing={4}>
-                <Stepper alternativeLabel activeStep={1} connector={<ColorlibConnector />}>
+            <Stack sx={{ width: '100%', marginTop: '3rem' }} spacing={4}>
+                <Stepper alternativeLabel activeStep={2} connector={<ColorlibConnector />}>
                     {steps.map((label) => (
                         <Step key={label}>
                             <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
