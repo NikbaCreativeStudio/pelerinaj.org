@@ -23,7 +23,7 @@ export const postOrder: AppThunk = (order: IOrder) => async (dispatch: AppDispat
     dispatch(postOrderRequest());
 
     const body = {
-        "to": {email},
+        "to": email,
         "subject": "Comandă de pe www.pelerinaj.org",
         "body": `Nume: ${order.name} <br /> Telefon: ${order.phone} <br /> Comandă: ${order.order}`,
         "type": "html",
