@@ -1,0 +1,1 @@
+export const baseUrl = 'https://cms.pelerinaj.org/pelerinaj/';
